@@ -17,8 +17,10 @@ pipeline {
                 dir("ecommerceBIS") {
                     // Start Docker Compose
                     sh "docker-compose down"
-                    sh "docker rmi -f ecommerce:latest"
                     sh "docker-compose up -d"
+                    sh "docker-compose exec app rm -rf vendor composer.lock"
+                    sh "docker-compose exec app composer install"
+                    sh "docker-compose exec app php artisan key:generate"
                 }
             }
         }
