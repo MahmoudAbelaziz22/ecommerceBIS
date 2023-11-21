@@ -16,6 +16,7 @@ pipeline {
                 // Change to the repository directory
                 dir("ecommerceBIS") {
                     // Start Docker Compose
+                    sh "docker-compose down"
                     sh "docker-compose up -d"
                 }
             }
