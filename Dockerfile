@@ -34,3 +34,6 @@ WORKDIR /var/www
 
 USER $user
 
+RUN rm -rf vendor composer.lock
+RUN composer install
+RUN php artisan key:generate
