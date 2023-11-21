@@ -3,7 +3,7 @@ services:
   app:
     build:
       args:
-        user: sammy
+        user: oday
         uid: 1000
       context: ./
       dockerfile: Dockerfile
@@ -21,10 +21,10 @@ services:
     container_name: ecommerce-db
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_DATABASE: ecommerce
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_PASSWORD: password
+      MYSQL_USER: ecommerce_user
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
