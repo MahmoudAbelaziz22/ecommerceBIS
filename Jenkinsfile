@@ -17,6 +17,7 @@ pipeline {
                 dir("ecommerceBIS") {
                     // Start Docker Compose
                     sh "docker-compose down"
+                    sh "docker rmi -f ecommerce:latest"
                     sh "docker-compose up -d"
                 }
             }
