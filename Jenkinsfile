@@ -10,7 +10,7 @@ pipeline {
         stage('Clone and Run Docker Compose') {
             steps {
                 // Clone the repository
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "${REPO_URL}"]]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "${REPO_URL}"]]])
 
                 // Change to the repository directory
                 dir("ecommerceBIS") {
