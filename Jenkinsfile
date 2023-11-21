@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+     label 'Built-In Node'
+    }
     environment {
         // Define environment variables
         REPO_URL = 'https://github.com/MahmoudAbelaziz22/ecommerceBIS.git'
@@ -7,11 +9,6 @@ pipeline {
 
     stages {
         stage('Clone and Run Docker Compose') {
-            when {
-                expression {
-                    changeset ".*"
-                }
-            }
             steps {
                 // Clone the repository
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "${REPO_URL}"]]])
