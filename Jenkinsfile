@@ -1,6 +1,7 @@
 pipeline {
-    agent agent
-
+    agent {
+     label 'agent'
+    }
     environment {
         // Define environment variables
         REPO_URL = 'https://github.com/MahmoudAbelaziz22/ecommerceBIS.git'
