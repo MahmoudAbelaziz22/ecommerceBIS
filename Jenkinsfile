@@ -9,6 +9,11 @@ pipeline {
 
     stages {
         stage('Clone and Run Docker Compose') {
+            when {
+                expression {
+                    changeset ".*"
+                }
+            }
             steps {
                 // Clone the repository
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "${REPO_URL}"]]])
