@@ -6,7 +6,7 @@
                     <div class="brand-wrap m-0">
                         <a href="{{ url('/') }}">
                             <img class="logo" src="{{ asset('frontend/images/logo-dark.png') }}" alt="logo">
-                            <span class="font-weight-bold text-dark">{{ config('app.name') }}</span>
+                            <span class="font-weight-bold text-danger">{{ config('app.name') }}</span>
                         </a>
                     </div>
                 </div>
