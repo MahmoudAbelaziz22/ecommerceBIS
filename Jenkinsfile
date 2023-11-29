@@ -19,9 +19,9 @@ pipeline {
                     // Start Docker Compose
                     sh "docker compose down"
                     sh "docker compose up -d"
-                   // sh "docker compose run app rm -rf vendor composer.lock"
-                   // sh "docker compose run app composer install"
-                   // sh "docker compose run app php artisan key:generate"
+                    sh "docker compose run app rm -rf vendor composer.lock"
+                    sh "docker compose run app composer install"
+                    sh "docker compose run app php artisan key:generate"
                 }
             }
         }
