@@ -45,8 +45,8 @@ RUN php artisan storage:link && \
     chown -R $user:$user /usr/src && \
     chmod -R 775 ./storage ./bootstrap/cache
 
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
-    unzip awscliv2.zip && \
-    ./aws/install
+# RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+#     unzip awscliv2.zip && \
+#     ./aws/install
 
 USER $user
