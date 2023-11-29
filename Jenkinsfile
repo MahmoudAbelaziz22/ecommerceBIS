@@ -18,6 +18,7 @@ pipeline {
                 dir("ecommerceBIS") {
                     // Start Docker Compose
                     sh "docker compose down"
+                    sh "docker rmi ecommerce --force"
                     sh "docker compose up -d"
                     sh "docker compose run app rm -rf vendor composer.lock"
                     sh "docker compose run app composer install"
