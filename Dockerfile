@@ -47,14 +47,3 @@ RUN php artisan storage:link && \
     chmod -R 775 ./storage ./bootstrap/cache
 
 USER $user
-
-CMD ["/bin/sh", "-c", "php artisan optimize && php-fpm"]
-
-FROM api AS worker
-CMD ["/bin/sh", "/usr/src/worker.sh"]
-
-FROM api AS scheduler
-CMD ["/bin/sh", "/usr/src/scheduler.sh"]
-
-FROM api AS health-check
-CMD ["/bin/sh", "/usr/src/health-check.sh"]
