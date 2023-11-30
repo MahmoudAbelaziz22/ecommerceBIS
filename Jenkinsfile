@@ -23,7 +23,7 @@ pipeline {
                     sh "docker compose run --user=root app rm -rf vendor composer.lock"
                     sh "docker compose run --user=root app composer install"
                     sh "docker compose run --user=root app php artisan key:generate"
-                   // sh "docker compose exec -it --user=root app chmod -R 777 /var/www/storage"
+                    sh "docker compose exec -it --user=root app chmod -R 777 /var/www/storage"
                 }
             }
         }
