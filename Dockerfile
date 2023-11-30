@@ -35,7 +35,7 @@ COPY ./composer*.json /var/www/
 
 COPY ./docker-compose/php-fpm/php-prod.ini /usr/local/etc/php/conf.d/php.ini
 COPY ./docker-compose/php-fpm/www.conf /usr/local/etc/php-fpm.d/www.conf
-COPY .docker-compose/bin/update.sh /var/www/update.sh
+COPY ./docker-compose/bin/update.sh /var/www/update.sh
 
 RUN composer install --no-scripts
 
