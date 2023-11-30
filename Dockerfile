@@ -1,4 +1,4 @@
-FROM php:php:7.4-fpm as api
+FROM php:7.4-fpm as api
 
 WORKDIR /var/www
 
