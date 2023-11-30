@@ -20,9 +20,9 @@ pipeline {
                     sh "docker compose down"
                     sh "docker rmi ecommerce --force"
                     sh "docker compose up -d"
-                    sh "docker compose run --user=root app rm -rf vendor composer.lock"
-                    sh "docker compose run app composer install"
-                    sh "docker compose run app php artisan key:generate"
+                   // sh "docker compose run --user=root app rm -rf vendor composer.lock"
+                   // sh "docker compose run app composer install"
+                   // sh "docker compose run app php artisan key:generate"
                    // sh "docker compose exec -it --user=root app chmod -R 777 /var/www/storage"
                 }
             }
