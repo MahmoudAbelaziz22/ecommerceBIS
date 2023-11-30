@@ -42,7 +42,6 @@ RUN composer install --no-scripts
 COPY . .
 
 RUN php artisan storage:link && \
-    chmod +x ./update.sh && \
     chown -R $user:$user /usr/src && \
     chmod -R 775 ./storage ./bootstrap/cache
 
