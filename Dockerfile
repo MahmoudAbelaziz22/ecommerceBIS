@@ -49,5 +49,3 @@ RUN php artisan storage:link && \
     chmod -R 777 /var/www/storage
 
 USER $user
-RUN chmod +x ./run.sh
-#CMD [ "./run.sh" ]

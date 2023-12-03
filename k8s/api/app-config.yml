@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ecommerce
+data:
+  IMAGE_TAG: "latest"
+  APP_NAME: "ecommerce"
+  APP_ENV: "production"
+  APP_DEBUG: "false"
+  APP_URL: "http://localhost:31747/"
+
+  LOG_CHANNEL: "stack"
+  LOG_LEVEL: "error"
+
+  QUEUE_CONNECTION: "redis"
+
+  MAIL_MAILER: "log"
+
+  CACHE_DRIVER: "redis"

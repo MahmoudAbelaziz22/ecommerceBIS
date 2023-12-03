@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-api
+  labels:
+    app: ecommerce-api
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 30%
+      maxUnavailable: 20%
+  selector:
+    matchLabels:
+      app: ecommerce-api
+  template:
+    metadata:
+      labels:
+        app: ecommerce-api
+    spec:
+      containers:
+        - name: ecommerce-api
+          image: mahmoudabdelaziz22/ecommerce
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "64Mi"
+          livenessProbe:
+            tcpSocket:
+              port: 9000
+            initialDelaySeconds: 20
+            periodSeconds: 30
+            failureThreshold: 2
+          readinessProbe:
+            tcpSocket:
+              port: 9000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            failureThreshold: 1
+          ports:
+            - containerPort: 9000
+          envFrom:
+            - configMapRef:
+                name: ecommerce
+            - secretRef:
+                name: ecommerce
